@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin — Donas Calidad</title>
+  <link rel="stylesheet" href="stilo.css" />
+  <link rel="stylesheet" href="admin.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body class="admin-body">
+
+  <!-- ===== HEADER ADMIN ===== -->
+  <header class="admin-header">
+    <div class="admin-header__inner">
+      <div class="logo-wrap">
+        <img src="https://raw.githubusercontent.com/josemanueldoed-boop/img-donas-calidad/refs/heads/main/logo%20donas%20calidad.png" alt="Logo" class="logo-img" />
+        <div class="brand-text">
+          <span class="brand-name">Donas Calidad</span>
+          <span class="brand-tagline admin-badge">· Panel Admin ·</span>
+        </div>
+      </div>
+      <a href="index.html" class="btn-volver">← Volver al sitio</a>
+    </div>
+  </header>
+
+  <!-- ===== MAIN ===== -->
+  <main class="admin-main">
+
+    <div class="admin-stat-bar">
+      <div class="stat-item">
+        <span class="stat-num" id="contador">0</span>
+        <span class="stat-label">Donas registradas</span>
+      </div>
+    </div>
+
+    <div class="admin-layout">
+
+      <!-- ── Formulario ── -->
+      <section class="admin-panel panel-form">
+        <h2 class="panel-title">➕ Agregar Dona</h2>
+
+        <form id="formDona" novalidate>
+
+          <div class="field">
+            <label for="nombre">Nombre de la dona *</label>
+            <input id="nombre" type="text" placeholder="Ej: Dona de Maracuyá" required maxlength="60" />
+          </div>
+
+          <div class="field">
+            <label for="descripcion">Descripción *</label>
+            <textarea id="descripcion" rows="3" placeholder="Describe el sabor, relleno o cobertura…" required maxlength="200"></textarea>
+          </div>
+
+          <div class="field">
+            <label for="precio">Precio (COP) *</label>
+            <input id="precio" type="number" placeholder="3500" min="1" required />
+          </div>
+
+          <!-- CAMBIO 1: imagen en vez de emoji -->
+          <div class="field">
+            <label for="imagen">URL de la imagen *</label>
+            <input id="imagen" type="url" placeholder="https://ejemplo.com/foto-dona.jpg" required />
+            <!-- Preview de la imagen -->
+            <div class="img-preview-wrap" id="imgPreviewWrap" style="display:none">
+              <img id="imgPreview" src="" alt="Vista previa" class="img-preview" />
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="categoria">Categoría</label>
+            <select id="categoria">
+              <option value="clasica">Clásica</option>
+              <option value="rellena">Rellena</option>
+              <option value="glaseada">Glaseada</option>
+              <option value="especial">Especial</option>
+              <option value="temporada">Temporada</option>
+            </select>
+          </div>
+
+          <button type="submit" id="btnGuardar" class="btn-guardar">
+            Guardar Dona
+          </button>
+
+        </form>
+      </section>
+
+      <!-- ── Lista de donas ── -->
+      <section class="admin-panel panel-list">
+        <h2 class="panel-title">📋 Donas en catálogo</h2>
+        <div id="listaDonasAdmin" class="admin-cards-list">
+          <p class="loading-msg">Cargando…</p>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script type="module">
+    import { cargarDonas } from "./js/admin.js";
+    document.addEventListener("DOMContentLoaded", cargarDonas);
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Donas Calidad</title>
+  <link rel="stylesheet" href="stilo.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header id="header">
+    <div class="header-inner">
+      <div class="logo-wrap">
+        <img src="https://raw.githubusercontent.com/josemanueldoed-boop/img-donas-calidad/refs/heads/main/logo%20donas%20calidad.png" alt="Donas Calidad Logo" class="logo-img" />
+        <div class="brand-text">
+          <span class="brand-name">Donas Calidad</span>
+          <span class="brand-tagline">· Artesanal · Calidad ·</span>
+        </div>
+      </div>
+      <nav class="nav">
+        <a href="#productos" class="nav-link">Productos</a>
+        <a href="#informacion" class="nav-link">Nosotros</a>
+        <a href="#footer" class="nav-link nav-cta">Contáctanos</a>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="Menú">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#productos" class="mobile-link">Productos</a>
+      <a href="#informacion" class="mobile-link">Nosotros</a>
+      <a href="#footer" class="mobile-link">Contáctanos</a>
+    </div>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="hero-content">
+      <p class="hero-pre">Bienvenidos a</p>
+      <h1 class="hero-title">Donas <em>Calidad</em></h1>
+      <p class="hero-slogan">"Si es Calidad, ¡te va a gustar de verdad!"</p>
+      <a href="#productos" class="btn-primary">Ver Productos</a>
+    </div>
+    <div class="hero-deco"></div>
+  </section>
+
+  <!-- ===== PRODUCTOS ===== -->
+  <section id="productos" class="section productos">
+    <div class="section-header">
+      <span class="section-pre">Nuestro Menú</span>
+      <h2 class="section-title">Productos Estrella</h2>
+      <p class="section-sub">Donas artesanales elaboradas con ingredientes de primera calidad, pensadas para todos los gustos.</p>
+    </div>
+
+    <!-- Las tarjetas las inyecta productos.js desde Firestore -->
+    <div class="cards-grid"></div>
+  </section>
+
+  <!-- ===== INFORMACIÓN ===== -->
+  <section id="informacion" class="section informacion">
+    <div class="info-grid">
+      <div class="info-col info-img-col">
+        <img src="https://raw.githubusercontent.com/josemanueldoed-boop/img-donas-calidad/refs/heads/main/logo%20donas%20calidad.png" alt="Donas Calidad" class="info-logo" />
+        <div class="info-location">
+          <span class="info-icon">📍</span>
+          <p>Zarzal, Valle del Cauca</p>
+        </div>
+      </div>
+      <div class="info-col info-text-col">
+        <span class="section-pre">Quiénes somos</span>
+        <h2 class="section-title left">Nuestra Historia</h2>
+        <p class="info-intro">Somos una empresa mixta, manufacturera y comercial, dedicada a producir y comercializar donas de múltiples sabores en Zarzal, Valle del Cauca.</p>
+        <div class="mv-cards">
+          <div class="mv-card">
+            <div class="mv-icon">🎯</div>
+            <h3>Misión</h3>
+            <p>Producir y comercializar una gran variedad de donas brindando a los clientes la posibilidad de probar todo tipo de sabores, a través de procesos artesanales y de alta calidad.</p>
+          </div>
+          <div class="mv-card">
+            <div class="mv-icon">🌟</div>
+            <h3>Visión</h3>
+            <p>Para el año 2030, hacernos conocidos en todo el Valle del Cauca por nuestra gran variedad de donas, ofreciendo calidad e innovación en cada uno de nuestros productos.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer id="footer" class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="footer-name">Donas Calidad</span>
+        <span class="footer-slogan">"Si es Calidad, ¡te va a gustar de verdad!"</span>
+      </div>
+      <div class="footer-info">
+        <div class="footer-col">
+          <h4>Ubicación</h4>
+          <p>Zarzal, Valle del Cauca</p>
+        </div>
+        <div class="footer-col">
+          <h4>Redes Sociales</h4>
+          <div class="social-links">
+            <a href="https://wa.me/573207902336" target="_blank" class="social-link">💬 WhatsApp</a>
+          </div>
+        </div>
+        <div class="footer-col"></div>
+      </div>
+      <div class="footer-copy">
+        <p>© 2026 Donas Calidad. Todos los derechos reservados.</p>
+        <a href="admin.html" class="admin-link">⚙️ Admin</a>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="script.js"></script>
+</body>
+</html>

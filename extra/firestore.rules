@@ -1,0 +1,54 @@
+// ============================================
+// REGLAS FIRESTORE — Donas Calidad
+// Pegar en: Firebase Console → Firestore → Reglas
+// ============================================
+
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // ── Colección "donas" ──────────────────────
+    match /donas/{donaId} {
+
+      // Cualquiera puede LEER (página pública)
+      allow read: if true;
+
+      // Solo se puede CREAR si todos los campos son válidos
+      allow create: if
+        // Campos obligatorios presentes y con tipo correcto
+        request.resource.data.nombre      is string &&
+        request.resource.data.nombre.size() >= 2 &&
+        request.resource.data.nombre.size() <= 60 &&
+
+        request.resource.data.descripcion is string &&
+        request.resource.data.descripcion.size() >= 5 &&
+        request.resource.data.descripcion.size() <= 200 &&
+
+        request.resource.data.precio      is number &&
+        request.resource.data.precio      > 0 &&
+
+        request.resource.data.imagen      is string &&
+        request.resource.data.imagen.size() > 0 &&
+
+        // Categoría debe ser una de las 5 permitidas
+        request.resource.data.categoria in [
+          'clasica',
+          'rellena',
+          'glaseada',
+          'especial',
+          'temporada'
+        ];
+
+      // Solo se puede ELIMINAR (sin autenticación por ahora)
+      allow delete: if true;
+
+      // ACTUALIZAR bloqueado hasta implementar auth
+      allow update: if false;
+    }
+
+    // Cualquier otra colección: bloqueada
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
